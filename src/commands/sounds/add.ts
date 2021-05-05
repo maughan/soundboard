@@ -16,7 +16,7 @@ export const add: Command = {
       return;
     }
 
-    if (!!/https:\/\/www.youtube.com\/watch\?v=[a-zA-Z0-9\-_]{11}/gm.test(args[2])) {
+    if (/https:\/\/www.youtube.com\/watch\?v=[a-zA-Z0-9\-_]{11}/gm.test(args[2])) {
       throw new Error("invalid youtube link. Please try again.");
     }
 

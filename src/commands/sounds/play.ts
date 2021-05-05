@@ -8,7 +8,6 @@ export const play: Command = {
   syntax: "<message>",
   inhibitors: [],
   async run(message, args) {
-    let servers: any = {};
     if (!message.guild) {
       return;
     }
@@ -31,11 +30,6 @@ export const play: Command = {
     if (!sound) {
       throw new Error("could not find sound with that name. Please try again.");
     }
-
-    if (!servers[message.guild.id])
-      servers[message.guild.id] = {
-        queue: [],
-      };
 
     if (!message.guild.voice?.connection) {
       message.member.voice.channel?.join().then(async function (connection) {
