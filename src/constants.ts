@@ -6,4 +6,4 @@ export const isDev = process.env.NODE_ENV === "development";
 /**
  * Prefix for the bot
  */
-export const prefix = process.env.PREFIX || "--";
+export const prefix = process.env.COMMAND_PREFIX ?? "--";

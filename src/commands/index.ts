@@ -1,15 +1,30 @@
 import {Command} from "../types/command";
 
 import {ping} from "./util/ping";
+import {add} from "./sounds/add";
+import {remove} from "./sounds/remove";
+import {play} from "./sounds/play";
 import {redisExample} from "./util/redis-example";
-import {kick} from "./moderation/kick";
-import {meme} from "./fun/meme";
+import {stop} from "./sounds/stop";
+import {list} from "./sounds/list";
+import {rank} from "./sounds/rank";
+import {invite} from "./util/invite";
 
 /**
  * An array of all commands available for the bot.
  * To register a command, all you have to do is place it in this array
  */
-export const commands: Command[] = [ping, redisExample, kick, meme];
+export const commands: Command[] = [
+  ping,
+  redisExample,
+  add,
+  remove,
+  play,
+  stop,
+  list,
+  invite,
+  rank,
+];
 
 const commandsWithAliases = commands.reduce((all, command) => {
   // Dedupe aliases

@@ -10,7 +10,11 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model User {
-  discord_id String @id
-  score      Int    @default(0)
+model Sound {
+  id         String @id @default(uuid())
+  name       String
+  guild_id   String
+  url        String
+  added_by   String
+  play_count Int    @default(0)
 }

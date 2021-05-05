@@ -17,6 +17,7 @@ client.on("ready", () => {
 
 client.on("message", async message => {
   if (message.author.bot) return;
+
   if (!message.content.startsWith(prefix)) return;
 
   const [rawCommandName, ...args] = message.content.replace(prefix, "").split(" ");
@@ -29,7 +30,7 @@ client.on("message", async message => {
       return message.reply(`⚠ Unknown Command. Use \`${prefix}help\` to see all commands`);
     }
 
-    const embed = new StandardEmbed(message.author)
+    const embed = new StandardEmbed()
       .addField("Description", command.description)
       .addField("Aliases", command.aliases.map(a => `\`${a}\``).join(", "));
 
@@ -53,7 +54,7 @@ client.on("message", async message => {
         };
       });
 
-    const embed = new StandardEmbed(message.author).addFields(fields);
+    const embed = new StandardEmbed().addFields(fields);
 
     return message.reply(embed);
   }
